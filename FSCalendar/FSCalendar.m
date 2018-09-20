@@ -224,17 +224,20 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     self.collectionViewLayout = collectionViewLayout;
     
     if (!FSCalendarInAppExtension) {
+        // There's an issue with FSCalendar when trying to hide the borders (using calendar.clipsToBounds = true)
+        // and show the scope handle: the bottom border still appears. Since we don't need to show borders, commenting
+        // addSubview fixes the issue.
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         view.backgroundColor = FSCalendarStandardLineColor;
         view.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin; // Stick to top
-        [self addSubview:view];
+        // [self addSubview:view];
         self.topBorder = view;
         
         view = [[UIView alloc] initWithFrame:CGRectZero];
         view.backgroundColor = FSCalendarStandardLineColor;
         view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin; // Stick to bottom
-        [self addSubview:view];
+        // [self addSubview:view];
         self.bottomBorder = view;
         
     }
