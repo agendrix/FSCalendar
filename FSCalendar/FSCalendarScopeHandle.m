@@ -14,7 +14,6 @@
 
 @interface FSCalendarScopeHandle () <UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) UIView *topBorder;
 @property (weak, nonatomic) UIView *handleIndicator;
 
 @property (weak, nonatomic) FSCalendarAppearance *appearance;
@@ -30,13 +29,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UIView *view;
-        
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 1)];
-        view.backgroundColor = FSCalendarStandardLineColor;
-        [self addSubview:view];
-        self.topBorder = view;
-        
+        UIView *view;        
         view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 6)];
         view.layer.shouldRasterize = YES;
         view.layer.masksToBounds = YES;
@@ -60,7 +53,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.topBorder.frame = CGRectMake(0, 0, self.fs_width, 1);
     self.handleIndicator.center = CGPointMake(self.fs_width/2, self.fs_height/2-0.5);
 }
 
