@@ -30,7 +30,7 @@
     if (self) {
         
         UIView *view;        
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 6)];
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 5)];
         view.layer.shouldRasterize = YES;
         view.layer.masksToBounds = YES;
         view.layer.cornerRadius = 3;
