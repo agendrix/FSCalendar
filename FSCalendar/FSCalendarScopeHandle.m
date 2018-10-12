@@ -30,10 +30,10 @@
     if (self) {
         
         UIView *view;        
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 5)];
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 4)];
         view.layer.shouldRasterize = YES;
         view.layer.masksToBounds = YES;
-        view.layer.cornerRadius = 3;
+        view.layer.cornerRadius = 2;
         view.layer.backgroundColor = FSCalendarStandardScopeHandleColor.CGColor;
         [self addSubview:view];
         self.handleIndicator = view;
