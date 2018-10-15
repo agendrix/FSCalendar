@@ -412,15 +412,15 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             case FSCalendarScopeMonth: {
                 CGFloat height = weekdayHeight + headerHeight + [self.calculator numberOfRowsInMonth:_currentPage]*rowHeight + paddings;
                 // height += _scopeHandle.fs_height;
-                // This was too much spacing. We arbitrarily decided that 12 was better.
-                if (_showsScopeHandle) height += 12;
+                // This was too much spacing. We arbitrarily decided that 14 was better.
+                if (_showsScopeHandle) height += 14;
                 return CGSizeMake(size.width, height);
             }
             case FSCalendarScopeWeek: {
                 CGFloat height = weekdayHeight + headerHeight + rowHeight + paddings;
                 // height += _scopeHandle.fs_height;
-                // This was too much spacing. We arbitrarily decided that 12 was better.
-                if (_showsScopeHandle) height += 12;
+                // This was too much spacing. We arbitrarily decided that 14 was better.
+                if (_showsScopeHandle) height += 14;
                 return CGSizeMake(size.width, height);
             }
         }
