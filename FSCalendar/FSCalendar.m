@@ -372,6 +372,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         [self.transitionCoordinator performScopeTransitionFromScope:FSCalendarScopeMonth toScope:FSCalendarScopeWeek animated:NO];
     }
     
+    // Fix for layout update issue when changing orientation, see: https://github.com/WenchaoD/FSCalendar/issues/895
+    [_collectionViewLayout invalidateLayout];
 }
 
 #if TARGET_INTERFACE_BUILDER
