@@ -173,7 +173,11 @@
     NSDate *firstDayOfWeek = [self dateByAddingComponents:components toDate:week options:0];
     firstDayOfWeek = [self dateBySettingHour:0 minute:0 second:0 ofDate:firstDayOfWeek options:0];
     components.day = NSIntegerMax;
-    return firstDayOfWeek;
+    if (firstDayOfWeek < week) {
+        return week;
+    } else { 
+        return firstDayOfWeek;
+    }
 }
 
 - (nullable NSDate *)fs_lastDayOfWeek:(NSDate *)week
@@ -186,7 +190,11 @@
     NSDate *lastDayOfWeek = [self dateByAddingComponents:components toDate:week options:0];
     lastDayOfWeek = [self dateBySettingHour:0 minute:0 second:0 ofDate:lastDayOfWeek options:0];
     components.day = NSIntegerMax;
-    return lastDayOfWeek;
+    if (firstDayOfWeek < week) {
+        return week;
+    } else { 
+        return lastDayOfWeek;
+    }
 }
 
 - (nullable NSDate *)fs_middleDayOfWeek:(NSDate *)week
@@ -199,7 +207,11 @@
     NSDateComponents *components = [self components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:middleDayOfWeek];
     middleDayOfWeek = [self dateFromComponents:components];
     componentsToSubtract.day = NSIntegerMax;
-    return middleDayOfWeek;
+    if (firstDayOfWeek < week) {
+        return week;
+    } else { 
+        return middleDayOfWeek;
+    }
 }
 
 - (NSInteger)fs_numberOfDaysInMonth:(NSDate *)month
