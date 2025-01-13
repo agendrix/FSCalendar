@@ -190,7 +190,7 @@
     NSDate *lastDayOfWeek = [self dateByAddingComponents:components toDate:week options:0];
     lastDayOfWeek = [self dateBySettingHour:0 minute:0 second:0 ofDate:lastDayOfWeek options:0];
     components.day = NSIntegerMax;
-    if (firstDayOfWeek < week) {
+    if (lastDayOfWeek < week) {
         return week;
     } else { 
         return lastDayOfWeek;
@@ -207,7 +207,7 @@
     NSDateComponents *components = [self components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:middleDayOfWeek];
     middleDayOfWeek = [self dateFromComponents:components];
     componentsToSubtract.day = NSIntegerMax;
-    if (firstDayOfWeek < week) {
+    if (middleDayOfWeek < week) {
         return week;
     } else { 
         return middleDayOfWeek;
