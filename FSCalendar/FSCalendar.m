@@ -658,6 +658,10 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         }
     }
     
+    // Work-around : When voice over triggers a scroll, this current delegate is always called with a targetContentOffset of 0,0
+    // which sends the calendar to the minimum date, 1970 and causes a crash
+    if (targetOffset == 0 ) { return; }
+
     NSInteger sections = lrint(targetOffset/contentSize);
     NSDate *targetPage = nil;
     switch (_scope) {
