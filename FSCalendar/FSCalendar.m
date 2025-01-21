@@ -459,6 +459,11 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Workaround to find the number of days in a week or month for Accessibility
+    if (_currentSection != indexPath.section) {
+        _currentSection = indexPath.section;
+    }
+
     FSCalendarMonthPosition monthPosition = [self.calculator monthPositionForIndexPath:indexPath];
     
     switch (self.placeholderType) {
