@@ -292,6 +292,13 @@ IB_DESIGNABLE
 @property (strong, nonatomic) NSDate *currentPage;
 
 /**
+ * The current section of calendar
+ *
+ * @desc In week mode, current section represents the current visible week; In month mode, it means current visible month.
+ */
+@property (readonly, nonatomic) NSInteger currentSection;
+
+/**
  * The locale of month and weekday symbols. Change it to display them in your own language.
  *
  * e.g. To display them in Chinese:
